@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Characters } from "./views/characters";
-import { Comics } from "./views/comics";
+import { Comics } from "./views/ComicView";
 import { Creators } from "./views/creators";
 import { Series } from "./views/series";
 import injectContext from "./store/appContext";
