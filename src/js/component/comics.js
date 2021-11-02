@@ -7,7 +7,7 @@ export const Comics = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="contenedor">
-			<h1>Vehicles</h1>
+			<h1>Comics</h1>
 			<div className="scroll">
 				<div className="row">
 					{store.Comics.map((item, index) => {
