@@ -2,11 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
-import { Characters } from "./views/characters";
+import { Home } from "./views/Home";
+import { Characters } from "./views/Characters";
+import { CharactersDetails } from "./views/CharactersDetails";
 import { Comics } from "./views/ComicView";
-import { Creators } from "./views/creators";
-import { Series } from "./views/series";
+import { Creators } from "./views/Creators";
+import { Series } from "./views/Series";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -29,6 +30,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/characters">
 							<Characters />
+						</Route>
+						<Route exact path="/characters/:character_id">
+							<CharactersDetails />
 						</Route>
 						<Route exact path="/comics">
 							<Comics />
