@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -16,7 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//comics: [],
 			//detailsComics: [],
 			characters: [],
-			caracter: { personaje: null, comics: null, series: null, stories: null, events: null },
+			charactersId: [],
+			personaje: [],
+			comics: [],
+			series: [],
+			stories: [],
+			events: [],
 			url:
 				"https://gateway.marvel.com/v1/public/characters?ts=1&apikey=d5fa6ff9a3c0a73538e2ea2229a4b3e8&hash=a24cd1d9263d7ae351b842fa38b4ebd7",
 			hash: "a24cd1d9263d7ae351b842fa38b4ebd7",
@@ -63,10 +70,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						console.log("Personaje", data.data.results);
-						// const {personaje} = getStore().caracter;
-						// setStore({
-						// 	{personaje}: data.data.results
-						//  });
+						setStore({ personaje: data.data.results });
+						console.log(getStore().personaje);
+
+						setStore({
+							charactersId: getStore().charactersId.concat(getStore().personaje)
+						});
 					})
 					.catch(error => console.log(error));
 			},
@@ -77,7 +86,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						console.log("Comics", data.data.results);
-						//setStore({ characters: data.data.results });
+						setStore({ comics: data.data.results });
+						setStore({
+							charactersId: getStore().charactersId.concat(getStore().comics)
+						});
 					})
 					.catch(error => console.log(error));
 			},
@@ -88,7 +100,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						console.log("Series", data.data.results);
-						//setStore({ characters: data.data.results });
+						setStore({ series: data.data.results });
+						setStore({
+							charactersId: getStore().charactersId.concat(getStore().series)
+						});
 					})
 					.catch(error => console.log(error));
 			},
@@ -99,7 +114,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						console.log("Eventos", data.data.results);
-						//setStore({ characters: data.data.results });
+						setStore({ events: data.data.results });
+						setStore({
+							charactersId: getStore().charactersId.concat(getStore().events)
+						});
+						console.log(getStore().charactersId);
 					})
 					.catch(error => console.log(error));
 			},
@@ -110,7 +129,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => {
 						console.log("Historias", data.data.results);
-						//setStore({ characters: data.data.results });
+						setStore({ stories: data.data.results });
+						setStore({
+							charactersId: getStore().charactersId.concat(getStore().stories)
+						});
+						// console.log(getStore().charactersId);
 					})
 					.catch(error => console.log(error));
 			}

@@ -17,17 +17,91 @@ export const CharactersDetails = () => {
 		<>
 			<div className="container">
 				<h1>Characters Details</h1>
-				<div className="row">
-					<div className="col-md-4">
-						<div className="card">
-							<img className="card-img-top" src="..." alt="Card image cap" />
-							<div className="card-body">
-								<h5 className="card-title">hola</h5>
-								<p className="card-text"> description </p>
-							</div>
-						</div>
-					</div>
+				<h2>Series:</h2>
+				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
+					{store.series.length > 0 &&
+						store.series.map(per => {
+							return (
+								<div
+									key={per.id}
+									className="card m-2 bg-dark"
+									style={{ width: "300px", border: "2px solid black" }}>
+									<img
+										style={{
+											width: "80%",
+											height: "280px",
+											margin: "20px auto",
+											borderRadius: "10px"
+										}}
+										src={`${per.thumbnail.path}.${per.thumbnail.extension}`}
+										className=""
+										alt="..."
+									/>
+									<div className="card-body">
+										<h2 className="card-title fs-6 text-center text-white">{per.title}</h2>
+									</div>
+								</div>
+							);
+						})}
 				</div>
+				<h2>Comics: </h2>
+				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
+					{store.comics.length > 0 &&
+						store.comics.map(per => {
+							return (
+								<div
+									key={per.id}
+									className="card m-2 bg-dark"
+									style={{ width: "300px", border: "2px solid black" }}>
+									<img
+										style={{
+											width: "80%",
+											height: "280px",
+											margin: "20px auto",
+											borderRadius: "10px"
+										}}
+										src={`${per.thumbnail.path}.${per.thumbnail.extension}`}
+										className=""
+										alt="..."
+									/>
+									<div className="card-body">
+										<h2 className="card-title fs-6 text-center text-white">{per.title}</h2>
+									</div>
+								</div>
+							);
+						})}
+				</div>
+				<h2>Events: </h2>
+				<div className="row row-cols-1 row-cols-md-3 flex-nowrap overflow-auto mb-4">
+					{store.events.length > 0 &&
+						store.events.map(per => {
+							return (
+								<div
+									key={per.id}
+									className="card m-2 bg-dark"
+									style={{ width: "300px", border: "2px solid black" }}>
+									<img
+										style={{
+											width: "80%",
+											height: "280px",
+											margin: "20px auto",
+											borderRadius: "10px"
+										}}
+										src={`${per.thumbnail.path}.${per.thumbnail.extension}`}
+										className=""
+										alt="..."
+									/>
+									<div className="card-body">
+										<h2 className="card-title fs-6 text-center text-white">{per.title}</h2>
+									</div>
+								</div>
+							);
+						})}
+				</div>
+				<h2>Events: </h2>
+				{store.events.map(per => {
+					return <h6 key={per.id}>{per.title}</h6>;
+				})}
 			</div>
 		</>
 	);
