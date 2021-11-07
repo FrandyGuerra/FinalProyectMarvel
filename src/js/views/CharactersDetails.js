@@ -99,9 +99,16 @@ export const CharactersDetails = () => {
 							);
 						})}
 				</div>
+<<<<<<< HEAD
 				<button className="btn btn-warning mb-3" onClick={history.goBack}>
 					Return
 				</button>
+=======
+				<h2>Historias: </h2>
+				{store.stories.map(per => {
+					return <h6 key={per.id}>{per.title}</h6>;
+				})}
+>>>>>>> ceb579d276b4ea140136603836d2b9643b1900f6
 			</div>
 		</>
 	);

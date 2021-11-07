@@ -8,7 +8,7 @@ import "@popperjs/core";
 import "bootstrap/dist/js/bootstrap.bundle";
 
 //include your index.scss file into the bundle
-import "../styles/index.scss";
+import "./index.css";
 
 //import your own components
 import Layout from "./layout";
