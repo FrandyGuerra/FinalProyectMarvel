@@ -7,6 +7,7 @@ import { Characters } from "./views/Characters";
 import { CharactersDetails } from "./views/CharactersDetails";
 import { Comics } from "./views/ComicView";
 import { Creators } from "./views/Creators";
+import { CreatorDetails } from "./views/CreatorDetails";
 import { Series } from "./views/Series";
 import injectContext from "./store/appContext";
 
@@ -39,6 +40,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/creators">
 							<Creators />
+						</Route>
+						<Route exact path="/creators/:creator_id">
+							<CreatorDetails />
 						</Route>
 						<Route exact path="/series">
 							<Series />
