@@ -98,8 +98,8 @@ export const CharactersDetails = () => {
 							);
 						})}
 				</div>
-				<h2>Events: </h2>
-				{store.events.map(per => {
+				<h2>Historias: </h2>
+				{store.stories.map(per => {
 					return <h6 key={per.id}>{per.title}</h6>;
 				})}
 			</div>
